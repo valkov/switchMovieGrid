@@ -15,13 +15,20 @@
 		EA7068E71DD1E48200067CC7 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA7068E61DD1E48200067CC7 /* FontAwesome.otf */; };
 		EA7068EC1DD1E89000067CC7 /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7068EB1DD1E89000067CC7 /* UIImage+FontAwesome.m */; };
 		EA7068F01DD1EA7B00067CC7 /* SwitchMovieCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7068EF1DD1EA7B00067CC7 /* SwitchMovieCollectionViewController.m */; };
+		EA7068F41DD1ED7500067CC7 /* SwitchMovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7068F31DD1ED7500067CC7 /* SwitchMovieCollectionViewCell.m */; };
+		EA7068F81DD209C500067CC7 /* SwitchMovieCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7068F71DD209C500067CC7 /* SwitchMovieCatalog.m */; };
+		EA7068FB1DD20A5C00067CC7 /* SwitchMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7068FA1DD20A5C00067CC7 /* SwitchMovie.m */; };
+		EA7069001DD20B6C00067CC7 /* RLMArray+LongestCommonSubsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7068FD1DD20B6C00067CC7 /* RLMArray+LongestCommonSubsequence.m */; };
+		EA7069011DD20B6C00067CC7 /* RLMObject+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7068FF1DD20B6C00067CC7 /* RLMObject+Background.m */; };
+		EA7069051DD20CC200067CC7 /* IMDBServer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7069041DD20CC200067CC7 /* IMDBServer.m */; };
+		EA7069081DD20F3F00067CC7 /* SwitchUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7069071DD20F3F00067CC7 /* SwitchUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7915B65208C01423533946AA /* Pods_switchMovieGrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_switchMovieGrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4BC08F3AAA786E37F9F38A8 /* Pods-switchMovieGrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-switchMovieGrid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-switchMovieGrid/Pods-switchMovieGrid.debug.xcconfig"; sourceTree = "<group>"; };
 		E3189E12AE5AB9D8FBF15A75 /* Pods-switchMovieGrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-switchMovieGrid.release.xcconfig"; path = "Pods/Target Support Files/Pods-switchMovieGrid/Pods-switchMovieGrid.release.xcconfig"; sourceTree = "<group>"; };
-		EA7068C81DD1DD4C00067CC7 /* switchMovieGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = switchMovieGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA7068C81DD1DD4C00067CC7 /* Switch Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Switch Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7068CC1DD1DD4C00067CC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA7068CE1DD1DD4C00067CC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA7068CF1DD1DD4C00067CC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +42,20 @@
 		EA7068EB1DD1E89000067CC7 /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
 		EA7068EE1DD1EA7B00067CC7 /* SwitchMovieCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchMovieCollectionViewController.h; sourceTree = "<group>"; };
 		EA7068EF1DD1EA7B00067CC7 /* SwitchMovieCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchMovieCollectionViewController.m; sourceTree = "<group>"; };
+		EA7068F21DD1ED7500067CC7 /* SwitchMovieCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchMovieCollectionViewCell.h; sourceTree = "<group>"; };
+		EA7068F31DD1ED7500067CC7 /* SwitchMovieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchMovieCollectionViewCell.m; sourceTree = "<group>"; };
+		EA7068F61DD209C500067CC7 /* SwitchMovieCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchMovieCatalog.h; sourceTree = "<group>"; };
+		EA7068F71DD209C500067CC7 /* SwitchMovieCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchMovieCatalog.m; sourceTree = "<group>"; };
+		EA7068F91DD20A5C00067CC7 /* SwitchMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchMovie.h; sourceTree = "<group>"; };
+		EA7068FA1DD20A5C00067CC7 /* SwitchMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchMovie.m; sourceTree = "<group>"; };
+		EA7068FC1DD20B6C00067CC7 /* RLMArray+LongestCommonSubsequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMArray+LongestCommonSubsequence.h"; sourceTree = "<group>"; };
+		EA7068FD1DD20B6C00067CC7 /* RLMArray+LongestCommonSubsequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMArray+LongestCommonSubsequence.m"; sourceTree = "<group>"; };
+		EA7068FE1DD20B6C00067CC7 /* RLMObject+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMObject+Background.h"; sourceTree = "<group>"; };
+		EA7068FF1DD20B6C00067CC7 /* RLMObject+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMObject+Background.m"; sourceTree = "<group>"; };
+		EA7069031DD20CC200067CC7 /* IMDBServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDBServer.h; sourceTree = "<group>"; };
+		EA7069041DD20CC200067CC7 /* IMDBServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDBServer.m; sourceTree = "<group>"; };
+		EA7069061DD20F3F00067CC7 /* SwitchUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchUtils.h; sourceTree = "<group>"; };
+		EA7069071DD20F3F00067CC7 /* SwitchUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +100,7 @@
 		EA7068C91DD1DD4C00067CC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EA7068C81DD1DD4C00067CC7 /* switchMovieGrid.app */,
+				EA7068C81DD1DD4C00067CC7 /* Switch Movie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,13 +108,13 @@
 		EA7068CA1DD1DD4C00067CC7 /* switchMovieGrid */ = {
 			isa = PBXGroup;
 			children = (
+				EA7069021DD20CA900067CC7 /* Utils */,
+				EA7068F51DD2099D00067CC7 /* Model */,
+				EA7068F11DD1ED6400067CC7 /* Views */,
 				EA7068ED1DD1EA7B00067CC7 /* View Controllers */,
 				EA7068E91DD1E89000067CC7 /* Categories */,
 				EA7068CE1DD1DD4C00067CC7 /* AppDelegate.h */,
 				EA7068CF1DD1DD4C00067CC7 /* AppDelegate.m */,
-				EA7068D71DD1DD4C00067CC7 /* Assets.xcassets */,
-				EA7068D91DD1DD4C00067CC7 /* LaunchScreen.storyboard */,
-				EA7068DC1DD1DD4C00067CC7 /* Info.plist */,
 				EA7068CB1DD1DD4C00067CC7 /* Supporting Files */,
 			);
 			path = switchMovieGrid;
@@ -102,6 +123,9 @@
 		EA7068CB1DD1DD4C00067CC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA7068DC1DD1DD4C00067CC7 /* Info.plist */,
+				EA7068D71DD1DD4C00067CC7 /* Assets.xcassets */,
+				EA7068D91DD1DD4C00067CC7 /* LaunchScreen.storyboard */,
 				EA7068E51DD1DE2800067CC7 /* Defines.h */,
 				EA7068E81DD1E59A00067CC7 /* SwitchMovie.pch */,
 				EA7068E61DD1E48200067CC7 /* FontAwesome.otf */,
@@ -113,6 +137,10 @@
 		EA7068E91DD1E89000067CC7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				EA7068FC1DD20B6C00067CC7 /* RLMArray+LongestCommonSubsequence.h */,
+				EA7068FD1DD20B6C00067CC7 /* RLMArray+LongestCommonSubsequence.m */,
+				EA7068FE1DD20B6C00067CC7 /* RLMObject+Background.h */,
+				EA7068FF1DD20B6C00067CC7 /* RLMObject+Background.m */,
 				EA7068EA1DD1E89000067CC7 /* UIImage+FontAwesome.h */,
 				EA7068EB1DD1E89000067CC7 /* UIImage+FontAwesome.m */,
 			);
@@ -126,6 +154,37 @@
 				EA7068EF1DD1EA7B00067CC7 /* SwitchMovieCollectionViewController.m */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EA7068F11DD1ED6400067CC7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA7068F21DD1ED7500067CC7 /* SwitchMovieCollectionViewCell.h */,
+				EA7068F31DD1ED7500067CC7 /* SwitchMovieCollectionViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EA7068F51DD2099D00067CC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA7068F61DD209C500067CC7 /* SwitchMovieCatalog.h */,
+				EA7068F71DD209C500067CC7 /* SwitchMovieCatalog.m */,
+				EA7068F91DD20A5C00067CC7 /* SwitchMovie.h */,
+				EA7068FA1DD20A5C00067CC7 /* SwitchMovie.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EA7069021DD20CA900067CC7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EA7069031DD20CC200067CC7 /* IMDBServer.h */,
+				EA7069041DD20CC200067CC7 /* IMDBServer.m */,
+				EA7069061DD20F3F00067CC7 /* SwitchUtils.h */,
+				EA7069071DD20F3F00067CC7 /* SwitchUtils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +207,7 @@
 			);
 			name = switchMovieGrid;
 			productName = switchMovieGrid;
-			productReference = EA7068C81DD1DD4C00067CC7 /* switchMovieGrid.app */;
+			productReference = EA7068C81DD1DD4C00067CC7 /* Switch Movie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -251,10 +310,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA7068FB1DD20A5C00067CC7 /* SwitchMovie.m in Sources */,
+				EA7068F41DD1ED7500067CC7 /* SwitchMovieCollectionViewCell.m in Sources */,
 				EA7068EC1DD1E89000067CC7 /* UIImage+FontAwesome.m in Sources */,
+				EA7069001DD20B6C00067CC7 /* RLMArray+LongestCommonSubsequence.m in Sources */,
+				EA7069051DD20CC200067CC7 /* IMDBServer.m in Sources */,
 				EA7068D01DD1DD4C00067CC7 /* AppDelegate.m in Sources */,
 				EA7068CD1DD1DD4C00067CC7 /* main.m in Sources */,
 				EA7068F01DD1EA7B00067CC7 /* SwitchMovieCollectionViewController.m in Sources */,
+				EA7069081DD20F3F00067CC7 /* SwitchUtils.m in Sources */,
+				EA7068F81DD209C500067CC7 /* SwitchMovieCatalog.m in Sources */,
+				EA7069011DD20B6C00067CC7 /* RLMObject+Background.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +356,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -312,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -338,6 +405,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -354,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -373,7 +441,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vk.switchMovieGrid;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Switch Movie";
 			};
 			name = Debug;
 		};
@@ -388,7 +456,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vk.switchMovieGrid;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Switch Movie";
 			};
 			name = Release;
 		};

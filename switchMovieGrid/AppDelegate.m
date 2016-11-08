@@ -13,7 +13,6 @@
 
 @end
 
-
 @implementation AppDelegate
 
 
@@ -23,12 +22,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    CGFloat const spacing = 1.0f;
-    
     UICollectionViewFlowLayout *gridLayout = [[UICollectionViewFlowLayout alloc] init];
-    gridLayout.minimumInteritemSpacing = spacing;
-    gridLayout.minimumLineSpacing = spacing;
-    gridLayout.itemSize = CGSizeMake(TILE_WIDTH - 1.0f, TILE_HEIGHT);
+    gridLayout.minimumInteritemSpacing = 10.0f;
+    gridLayout.minimumLineSpacing = 15.0f;
+    gridLayout.itemSize = CGSizeMake(TILE_WIDTH, TILE_HEIGHT);
+    gridLayout.sectionInset = UIEdgeInsetsMake(TILE_SEPARATOR_WIDTH + 5.0f, TILE_SEPARATOR_WIDTH, TILE_SEPARATOR_WIDTH, TILE_SEPARATOR_WIDTH);
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SwitchMovieCollectionViewController alloc] initWithCollectionViewLayout:gridLayout]];
     
