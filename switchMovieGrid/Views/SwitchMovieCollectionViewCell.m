@@ -34,13 +34,19 @@
 - (void)setMovie:(SwitchMovie *)movie {
     _movie = movie;
     
-    @weakify(self);
-    [self.imageView sd_setImageWithURL:self.movie.posterUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        @strongify(self);
-        if(!error) {
-            self.imageView.contentMode = UIViewContentModeScaleToFill;
-        }
-    }];
+    if(self.movie.posterPath.length) {
+        @weakify(self);
+        [self.imageView sd_setImageWithURL:self.movie.posterUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            @strongify(self);
+            if(!error) {
+                self.imageView.contentMode = UIViewContentModeScaleToFill;
+            }
+        }];
+    }
+    else {
+        self.imageView.image = [UIImage imageWithIcon:@"fa-exclamation" backgroundColor:[UIColor clearColor] iconColor:TITLE_COLOR andSize:CGSizeMake(50, 50)];
+        self.imageView.contentMode = UIViewContentModeCenter;
+    }
 }
 
 @end

@@ -22,7 +22,7 @@
 
 + (NSDictionary *)defaultPropertyValues
 {
-    return @{@"remoteMoviesCount" : @0};
+    return @{@"remotePagesCount" : @0, @"pagesLoaded" : @0};
 }
 
 + (SwitchMovieCatalog*)defaultCatalog {
@@ -41,13 +41,16 @@
     return result;
 }
 
-- (void)applyResponseDictionaryOnBackground:(NSDictionary*)response removeExisting:(BOOL)removeExisting {
+- (void)applyResponseDictionaryOnBackground:(NSDictionary*)response pageNumber:(NSUInteger)pageNumber {
+    BOOL removeExisting = pageNumber == 0;
     
     NSArray *results = response[kResults];
     
     [self transactionOnBackgroundWithBlock:^(SwitchMovieCatalog *backgroundSelf) {
         
-        backgroundSelf.remoteMoviesCount = [response[kTotalPages] intValue];
+        backgroundSelf.remotePagesCount = [response[kTotalPages] intValue];
+        
+        backgroundSelf.pagesLoaded = pageNumber == 0 ? 1 : backgroundSelf.pagesLoaded + 1;
         
         NSArray *newAndUpdated = [SwitchMovie createOrUpdateInRealm:[RLMRealm defaultRealm] withJSONArray:results];
         

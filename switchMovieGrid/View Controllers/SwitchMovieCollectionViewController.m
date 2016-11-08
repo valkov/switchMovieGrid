@@ -44,14 +44,20 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.collectionView.pullToRefreshView setCustomView:[self customRefreshView] forState:SVPullToRefreshStateAll];
     
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        @strongify(self);
+        [self refreshMoviesFromPage:self.movieCatalog.pagesLoaded + 1];
+    }];
+    
     self.movieCatalog = [SwitchMovieCatalog defaultCatalog];
     
     [SwitchUtils bindRLMObject:self.movieCatalog arrayPropertyNamed:@"movies" toSection:0 ofCollectionView:self.collectionView refreshBlock:^{
-        NSLog(@"refreshed");
+        @strongify(self);
+        self.collectionView.showsInfiniteScrolling = self.movieCatalog.remotePagesCount > self.movieCatalog.pagesLoaded;
     }];
     
     if(![SwitchMovieCatalog defaultCatalog].movies.count) {
-        [self refreshMoviesFromPage:0];
+        [self.collectionView triggerPullToRefresh];
     }
 }
 
@@ -98,11 +104,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)refreshMoviesFromPage:(NSUInteger)pageNumber {
     [[IMDBServer sharedServer] moviesListFromPage:pageNumber andCompletion:^(id response, NSError *error) {
-        if(pageNumber == 0)
+        if(pageNumber == 0) {
             [self.collectionView.pullToRefreshView stopAnimating];
+        }
+        else {
+            [self.collectionView.infiniteScrollingView stopAnimating];
+        }
         
         if(!error) {
-            [[SwitchMovieCatalog defaultCatalog] applyResponseDictionaryOnBackground:response removeExisting:YES];
+            [[SwitchMovieCatalog defaultCatalog] applyResponseDictionaryOnBackground:response pageNumber:pageNumber];
         }
         else {
             [SwitchUtils showAlertWithTitle:NSLocalizedString(@"Error", @"") andMessage:error.localizedDescription];
@@ -112,6 +122,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark - Enable CollectionView bounce
+/*
 - (void)edgeInsetsToFit {
     UIEdgeInsets edgeInsets = self.collectionView.contentInset;
     CGSize contentSize = self.collectionView.contentSize;
@@ -134,6 +145,7 @@ static NSString * const reuseIdentifier = @"Cell";
         [self edgeInsetsToFit];
     });
 }
+ */
 
 #pragma mark -
 - (void)dealloc {

@@ -37,7 +37,6 @@
     RACDisposable *result = [signal subscribeNext:^(RACTuple *info) { // tuple is value, change dictionary
                                      @strongify(collectionView);
                                      
-                                     
                                      NSDictionary *change = info.second;
                                      NSKeyValueChange kind = [change[NSKeyValueChangeKindKey] intValue];
                                      NSIndexSet *indexes = change[NSKeyValueChangeIndexesKey];

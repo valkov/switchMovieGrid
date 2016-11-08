@@ -11,12 +11,13 @@
 
 @interface SwitchMovieCatalog : RLMObject
 @property NSString *name;
-@property int remoteMoviesCount;
+@property int remotePagesCount;
+@property int pagesLoaded;
 
 @property (nonatomic, strong) RLMArray<SwitchMovie> *movies;
 
 + (SwitchMovieCatalog*)defaultCatalog;
-- (void)applyResponseDictionaryOnBackground:(NSDictionary*)response removeExisting:(BOOL)removeExisting;
+- (void)applyResponseDictionaryOnBackground:(NSDictionary*)response pageNumber:(NSUInteger)pageNumber;
 @end
 
 
