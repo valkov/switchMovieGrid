@@ -1,5 +1,5 @@
 //
-//  SwitchMovieCatalog.h
+//  IMDBMovieCatalog.h
 //  switchMovieGrid
 //
 //  Created by Valentyn Kovalsky on 11/8/16.
@@ -7,16 +7,16 @@
 //
 
 #import <Realm/Realm.h>
-#import "SwitchMovie.h"
+#import "IMDBMovie.h"
 
-@interface SwitchMovieCatalog : RLMObject
+@interface IMDBMovieCatalog : RLMObject
 @property NSString *name;
 @property int remotePagesCount;
 @property int pagesLoaded;
 
-@property (nonatomic, strong) RLMArray<SwitchMovie> *movies;
+@property (nonatomic, strong) RLMArray<IMDBMovie> *movies;
 
-+ (SwitchMovieCatalog*)defaultCatalog;
++ (IMDBMovieCatalog*)defaultCatalog;
 - (void)applyResponseDictionaryOnBackground:(NSDictionary*)response pageNumber:(NSUInteger)pageNumber;
 @end
 

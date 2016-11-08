@@ -31,7 +31,7 @@
     return self;
 }
 
-- (void)setMovie:(SwitchMovie *)movie {
+- (void)setMovie:(IMDBMovie *)movie {
     _movie = movie;
     
     if(self.movie.posterPath.length) {

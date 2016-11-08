@@ -1,12 +1,12 @@
 //
-//  SwitchMovieCatalog.m
+//  IMDBMovieCatalog.m
 //  switchMovieGrid
 //
 //  Created by Valentyn Kovalsky on 11/8/16.
 //  Copyright © 2016 Valentyn Kovalsky. All rights reserved.
 //
 
-#import "SwitchMovieCatalog.h"
+#import "IMDBMovieCatalog.h"
 #import "RLMArray+LongestCommonSubsequence.h"
 #import "RLMObject+Background.h"
 #import "RLMObject+JSON.h"
@@ -14,7 +14,7 @@
 #define kTotalPages @"total_pages"
 #define kResults    @"results"
 
-@implementation SwitchMovieCatalog
+@implementation IMDBMovieCatalog
 
 + (NSString *)primaryKey {
     return @"name";
@@ -25,12 +25,12 @@
     return @{@"remotePagesCount" : @0, @"pagesLoaded" : @0};
 }
 
-+ (SwitchMovieCatalog*)defaultCatalog {
++ (IMDBMovieCatalog*)defaultCatalog {
     NSString *defaultName = @"DEFAULT_CATALOG";
     
-    SwitchMovieCatalog *result = [SwitchMovieCatalog objectForPrimaryKey:defaultName];
+    IMDBMovieCatalog *result = [IMDBMovieCatalog objectForPrimaryKey:defaultName];
     if(!result) {
-        result = [SwitchMovieCatalog new];
+        result = [IMDBMovieCatalog new];
         result.name = defaultName;
         
         RLMRealm *realm = [RLMRealm defaultRealm];
@@ -46,13 +46,13 @@
     
     NSArray *results = response[kResults];
     
-    [self transactionOnBackgroundWithBlock:^(SwitchMovieCatalog *backgroundSelf) {
+    [self transactionOnBackgroundWithBlock:^(IMDBMovieCatalog *backgroundSelf) {
         
         backgroundSelf.remotePagesCount = [response[kTotalPages] intValue];
         
         backgroundSelf.pagesLoaded = pageNumber == 0 ? 1 : backgroundSelf.pagesLoaded + 1;
         
-        NSArray *newAndUpdated = [SwitchMovie createOrUpdateInRealm:[RLMRealm defaultRealm] withJSONArray:results];
+        NSArray *newAndUpdated = [IMDBMovie createOrUpdateInRealm:[RLMRealm defaultRealm] withJSONArray:results];
         
         NSIndexSet *addedIndexes, *removedIndexes;
         [backgroundSelf.movies indexesOfCommonElementsWithArray:newAndUpdated addedIndexes:&addedIndexes removedIndexes:&removedIndexes];

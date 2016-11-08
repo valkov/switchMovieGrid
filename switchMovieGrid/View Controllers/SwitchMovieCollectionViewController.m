@@ -9,12 +9,12 @@
 #import "SwitchMovieCollectionViewController.h"
 #import "SwitchMovieCollectionViewCell.h"
 #import "SVPullToRefresh.h"
-#import "SwitchMovieCatalog.h"
+#import "IMDBMovieCatalog.h"
 #import "IMDBServer.h"
-#import "RLMObject+Background.h"
+#import "SwitchMovieDetailsViewController.h"
 
 @interface SwitchMovieCollectionViewController ()
-@property (nonatomic, strong) SwitchMovieCatalog *movieCatalog;
+@property (nonatomic, strong) IMDBMovieCatalog *movieCatalog;
 @end
 
 @implementation SwitchMovieCollectionViewController
@@ -25,13 +25,15 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"Latest Movies", @"");
-    
+
     self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = TITLE_COLOR;
     
     self.collectionView.backgroundColor = BACKGROUND_COLOR;
     [self.collectionView registerClass:[SwitchMovieCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", @"") style:UIBarButtonItemStylePlain target:nil action:nil];
     
     UIImage *userImage = [UIImage imageWithIcon:@"fa-user" backgroundColor:[UIColor clearColor] iconColor:TITLE_COLOR andSize:CGSizeMake(25, 25)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:userImage style:UIBarButtonItemStylePlain target:self action:@selector(openUserSettings)];
@@ -49,14 +51,14 @@ static NSString * const reuseIdentifier = @"Cell";
         [self refreshMoviesFromPage:self.movieCatalog.pagesLoaded + 1];
     }];
     
-    self.movieCatalog = [SwitchMovieCatalog defaultCatalog];
+    self.movieCatalog = [IMDBMovieCatalog defaultCatalog];
     
     [SwitchUtils bindRLMObject:self.movieCatalog arrayPropertyNamed:@"movies" toSection:0 ofCollectionView:self.collectionView refreshBlock:^{
         @strongify(self);
         self.collectionView.showsInfiniteScrolling = self.movieCatalog.remotePagesCount > self.movieCatalog.pagesLoaded;
     }];
     
-    if(![SwitchMovieCatalog defaultCatalog].movies.count) {
+    if(![IMDBMovieCatalog defaultCatalog].movies.count) {
         [self.collectionView triggerPullToRefresh];
     }
 }
@@ -79,26 +81,27 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [SwitchMovieCatalog defaultCatalog].movies.count;
+    return [IMDBMovieCatalog defaultCatalog].movies.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SwitchMovieCollectionViewCell *cell = (SwitchMovieCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.movie = [SwitchMovieCatalog defaultCatalog].movies[indexPath.item];
+    cell.movie = [IMDBMovieCatalog defaultCatalog].movies[indexPath.item];
     
     return cell;
 }
 
-#pragma mark -
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    SwitchMovieDetailsViewController *details = [SwitchMovieDetailsViewController new];
+    details.movie = [IMDBMovieCatalog defaultCatalog].movies[indexPath.item];
+    [self.navigationController pushViewController:details animated:YES];
+}
+
+#pragma mark - Private stuff
 
 - (void)openUserSettings {
-
-/*
- [[SwitchMovieCatalog defaultCatalog] transactionOnBackgroundWithBlock:^(SwitchMovieCatalog *defaultCatalog) {
-        [defaultCatalog.movies removeAllObjects];
-    }];
-*/
     [SwitchUtils showAlertWithTitle:nil andMessage:@"Not implemented"];
 }
 
@@ -112,7 +115,7 @@ static NSString * const reuseIdentifier = @"Cell";
         }
         
         if(!error) {
-            [[SwitchMovieCatalog defaultCatalog] applyResponseDictionaryOnBackground:response pageNumber:pageNumber];
+            [[IMDBMovieCatalog defaultCatalog] applyResponseDictionaryOnBackground:response pageNumber:pageNumber];
         }
         else {
             [SwitchUtils showAlertWithTitle:NSLocalizedString(@"Error", @"") andMessage:error.localizedDescription];
@@ -120,32 +123,6 @@ static NSString * const reuseIdentifier = @"Cell";
     }];
 
 }
-
-#pragma mark - Enable CollectionView bounce
-/*
-- (void)edgeInsetsToFit {
-    UIEdgeInsets edgeInsets = self.collectionView.contentInset;
-    CGSize contentSize = self.collectionView.contentSize;
-    CGSize size = self.collectionView.bounds.size;
-    CGFloat heightOffset = (contentSize.height + edgeInsets.top) - size.height;
-    if (heightOffset < 0) {
-        edgeInsets.bottom = size.height - (contentSize.height + edgeInsets.top) + 1;
-        self.collectionView.contentInset = edgeInsets;
-    } else {
-        edgeInsets.bottom = 0;
-        self.collectionView.contentInset = edgeInsets;
-    }
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    @weakify(self);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        @strongify(self);
-        [self edgeInsetsToFit];
-    });
-}
- */
 
 #pragma mark -
 - (void)dealloc {

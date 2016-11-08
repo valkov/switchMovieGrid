@@ -15,7 +15,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -29,6 +28,7 @@
     gridLayout.sectionInset = UIEdgeInsetsMake(TILE_SEPARATOR_WIDTH + 5.0f, TILE_SEPARATOR_WIDTH, TILE_SEPARATOR_WIDTH, TILE_SEPARATOR_WIDTH);
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SwitchMovieCollectionViewController alloc] initWithCollectionViewLayout:gridLayout]];
+    ;
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:TITLE_COLOR, NSFontAttributeName:[UIFont systemFontOfSize:20]}];
     

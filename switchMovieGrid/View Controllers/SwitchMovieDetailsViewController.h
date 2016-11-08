@@ -1,5 +1,5 @@
 //
-//  SwitchMovieCollectionViewCell.h
+//  SwitchMovieDetailsViewController.h
 //  switchMovieGrid
 //
 //  Created by Valentyn Kovalsky on 11/8/16.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "IMDBMovie.h"
 
-@interface SwitchMovieCollectionViewCell : UICollectionViewCell
+@interface SwitchMovieDetailsViewController : UIViewController
 @property (nonatomic, strong) IMDBMovie *movie;
 @end
