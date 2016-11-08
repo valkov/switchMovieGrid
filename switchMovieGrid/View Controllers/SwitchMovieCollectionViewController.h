@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SwitchMovieCollectionViewController.h
 //  switchMovieGrid
 //
 //  Created by Valentyn Kovalsky on 11/8/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SwitchMovieCollectionViewController : UICollectionViewController
 
 @end
-
