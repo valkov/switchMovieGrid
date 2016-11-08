@@ -27,8 +27,6 @@
     
     self.title = self.movie.title;
     
-    [self.backgroundImageView sd_setImageWithURL:self.movie.backdropUrl];
-    
     self.posterImageView.clipsToBounds = YES;
     
     @weakify(self);
@@ -45,6 +43,7 @@
     }];
     
     if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+        [self.backgroundImageView sd_setImageWithURL:self.movie.backdropUrl];
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         blurEffectView.frame = self.view.bounds;
@@ -69,7 +68,14 @@
     
     self.titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", self.movie.title, year];
     
+    self.detailsTextView.scrollEnabled = NO;
     self.detailsTextView.text = self.movie.overview;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.detailsTextView.scrollEnabled = YES;
+}
+
 
 @end
