@@ -18,5 +18,6 @@ https://docs.google.com/document/d/1wrKiZq8mevGO0zs9sAsbKD8o0ocCmLynRjIdGso-JN0/
 ## Test environment
 Simulators:
 iPhone 6, iPhone 6+, iPhone 7+, iPad Air
+
 Devices:
 iPhone SE iOS 10.02
