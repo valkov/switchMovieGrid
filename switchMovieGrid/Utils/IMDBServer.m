@@ -42,12 +42,19 @@
         [params setObject:@(pageNumber) forKey:kPage];
     }
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     [self.operationsManager GET:@"movie/now_playing" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         
         if(completion) {
             completion(responseObject, nil);
         }
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
         if(completion) {
             completion(nil, error);
         }
