@@ -74,7 +74,7 @@
     [self adjustPosterImageForPortrait:portrait];
     
     self.detailsLabel.numberOfLines = 0;
-    self.detailsLabel.text = self.movie.overview;
+    self.detailsLabel.text = self.movie.overview.length ? self.movie.overview : NSLocalizedString(@"No description provided", @"");
     [self.detailsLabel sizeToFit];
 }
 

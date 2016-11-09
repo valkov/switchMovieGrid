@@ -18,7 +18,7 @@
 @property float score;
 
 
-#warning NO RAITING INFO in the model
+#warning no raiting info on server so in the model
 
 - (NSURL*)posterUrl;
 - (NSURL*)backdropUrl;

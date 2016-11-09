@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -54,7 +53,7 @@
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kUk-Pq-bUt">
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGb-Sp-AWI">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGb-Sp-AWI">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -141,7 +140,7 @@
                         <constraint firstItem="rGd-hV-6GL" firstAttribute="top" secondItem="eTe-HA-yKT" secondAttribute="top" constant="10" id="gdT-tz-Bbo"/>
                         <constraint firstAttribute="trailing" secondItem="b28-Xp-qKl" secondAttribute="trailing" id="jaD-g1-VDG"/>
                         <constraint firstItem="xYL-5n-XiD" firstAttribute="leading" secondItem="rQC-vE-CdB" secondAttribute="leading" constant="20" id="pFK-sb-ZrD"/>
-                        <constraint firstItem="eTe-HA-yKT" firstAttribute="top" secondItem="rQC-vE-CdB" secondAttribute="top" constant="21" id="sF4-MF-Iip"/>
+                        <constraint firstItem="eTe-HA-yKT" firstAttribute="top" secondItem="rQC-vE-CdB" secondAttribute="top" constant="25" id="sF4-MF-Iip"/>
                         <constraint firstAttribute="bottom" secondItem="b28-Xp-qKl" secondAttribute="bottom" constant="29" id="t8C-9S-9hC"/>
                         <constraint firstItem="xYL-5n-XiD" firstAttribute="leading" secondItem="eTe-HA-yKT" secondAttribute="leading" id="uGf-fw-OP6"/>
                         <constraint firstItem="xYL-5n-XiD" firstAttribute="leading" secondItem="mFj-eh-vmo" secondAttribute="leading" id="wUP-O9-ZLy"/>
