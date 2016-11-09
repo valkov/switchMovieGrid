@@ -6,6 +6,7 @@ https://docs.google.com/document/d/1wrKiZq8mevGO0zs9sAsbKD8o0ocCmLynRjIdGso-JN0/
 
 ## Features
 - pull to refresh support
+- paging support
 - offline support (movies are saved to the Realm)
 - easy JSON->Realm mapping via Realm+JSON
 - automatic CollectionView cells insertion/removal animation (the movies list changes is done on background thread after network request, collectionView view will react automatically to the model changes)
