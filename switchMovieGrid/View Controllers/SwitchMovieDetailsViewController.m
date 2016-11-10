@@ -34,6 +34,7 @@
     @weakify(self);
     [self.posterImageView sd_setImageWithURL:self.movie.posterUrl placeholderImage:[UIImage imageWithIcon:@"fa-refresh" backgroundColor:[UIColor clearColor] iconColor:TITLE_COLOR andSize:CGSizeMake(25, 25)] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         @strongify(self);
+        
         if(!error) {
             self.posterImageView.contentMode = UIViewContentModeScaleToFill;
         }

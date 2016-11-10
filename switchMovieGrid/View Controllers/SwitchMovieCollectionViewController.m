@@ -106,7 +106,10 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (void)refreshMoviesFromPage:(NSUInteger)pageNumber {
+    @weakify(self);
     [[IMDBServer sharedServer] moviesListFromPage:pageNumber andCompletion:^(id response, NSError *error) {
+        @strongify(self);
+        
         if(pageNumber == 0) {
             [self.collectionView.pullToRefreshView stopAnimating];
         }
